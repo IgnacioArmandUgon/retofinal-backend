@@ -8,23 +8,30 @@ import java.util.List;
 import java.util.UUID;
 
 @Document(collection = "facturas")
-public class facturaDTOReactiva {
+public class FacturaDTO {
 
     @Id
-    private String Id = UUID.randomUUID().toString().substring(0, 10);
-    //private Date fecha;
+    private String id = UUID.randomUUID().toString().substring(0, 3);
+
     private String nombreCliente;
     private String empleadoQueAtendio;
-    //private List<productoDTO> comprados;
     private int precioTotal;
-
-    public String getId() {
-        return Id;
+    private List<ProductoDTO> comprados;
+    private Date fecha;
+    public Date getFecha() {
+        return fecha;
     }
 
-    /*public Date getFecha() {
-        return fecha;
-    }*/
+    public FacturaDTO(String id, String nombreCliente, String empleadoQueAtendio, int precioTotal) {
+        this.id = id;
+        this.nombreCliente = nombreCliente;
+        this.empleadoQueAtendio = empleadoQueAtendio;
+        this.precioTotal = precioTotal;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public String getNombreCliente() {
         return nombreCliente;
@@ -34,21 +41,21 @@ public class facturaDTOReactiva {
         return empleadoQueAtendio;
     }
 
-    /*public List<productoDTO> getComprados() {
+    public List<ProductoDTO> getComprados() {
         return comprados;
-    }*/
+    }
 
     public int getPrecioTotal() {
         return precioTotal;
     }
 
     public void setId(String id) {
-        Id = id;
+        id = id;
     }
 
-    /*public void setFecha(Date fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }*/
+    }
 
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
@@ -58,23 +65,23 @@ public class facturaDTOReactiva {
         this.empleadoQueAtendio = empleadoQueAtendio;
     }
 
-    /*public void setComprados(List<productoDTO> comprados) {
+    public void setComprados(List<ProductoDTO> comprados) {
         this.comprados = comprados;
-    }*/
+    }
 
     public void setPrecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "facturaDTOReactiva{" +
-                "Id='" + Id + '\'' +
+                "Id='" + id + '\'' +
                 ", fecha=" + fecha +
                 ", nombreCliente='" + nombreCliente + '\'' +
                 ", empleadoQueAtendio='" + empleadoQueAtendio + '\'' +
                 ", comprados=" + comprados +
                 ", precioTotal=" + precioTotal +
                 '}';
-    }*/
+    }
 }
