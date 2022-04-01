@@ -8,9 +8,11 @@ import java.util.UUID;
 @Document(collection = "facturas")
 public class ProductoDTO {
     @Id
-    private String id = UUID.randomUUID().toString().substring(0, 10);
+    private String id = UUID.randomUUID().toString().substring(0, 3);
 
     private String nombreProducto;
+
+    private int cantidad;
 
     private int Precio;
 

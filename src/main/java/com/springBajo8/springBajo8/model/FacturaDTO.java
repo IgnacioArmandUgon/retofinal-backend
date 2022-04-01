@@ -11,7 +11,7 @@ import java.util.UUID;
 public class FacturaDTO {
 
     @Id
-    private String id = UUID.randomUUID().toString().substring(0, 3);
+    private String id;
 
     private String nombreCliente;
     private String empleadoQueAtendio;
