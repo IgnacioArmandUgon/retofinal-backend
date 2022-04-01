@@ -7,22 +7,22 @@ import java.util.List;
 import java.util.UUID;
 
 @Document(collection = "volantes")
-public class VoletaDTO {
+public class VolanteDTO {
     @Id
     private String id = UUID.randomUUID().toString().substring(0, 3);
     private String nombreProveedor;
     private List<ProductoDTO> productos;
     private int idProveedor;
 
-    public VoletaDTO(){};
+    public VolanteDTO(){};
 
-    public VoletaDTO(String nombreProveedor, List<ProductoDTO> productos, int idProveedor) {
+    public VolanteDTO(String nombreProveedor, List<ProductoDTO> productos, int idProveedor) {
         this.nombreProveedor = nombreProveedor;
         this.productos = productos;
         this.idProveedor = idProveedor;
     }
 
-    public VoletaDTO(String id, String nombreProveedor, List<ProductoDTO> productos, int idProveedor) {
+    public VolanteDTO(String id, String nombreProveedor, List<ProductoDTO> productos, int idProveedor) {
         this.id = id;
         this.nombreProveedor = nombreProveedor;
         this.productos = productos;

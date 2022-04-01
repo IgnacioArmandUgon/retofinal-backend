@@ -5,11 +5,11 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface FacturaService {
-    Mono<FacturaDTO> save(FacturaDTO facturaDTOReactiva);
+    Mono<FacturaDTO> save(FacturaDTO facturaDTO);
 
     Mono<FacturaDTO> delete(String id);
 
-    Mono<FacturaDTO> update(String id, FacturaDTO facturaDTOReactiva);
+    Mono<FacturaDTO> update(String id, FacturaDTO facturaDTO);
 
     Flux<FacturaDTO> findAll();
 
