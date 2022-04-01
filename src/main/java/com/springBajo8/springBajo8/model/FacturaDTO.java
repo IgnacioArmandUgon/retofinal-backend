@@ -18,6 +18,8 @@ public class FacturaDTO {
     private int precioTotal;
     private List<ProductoDTO> comprados;
     private Date fecha;
+
+
     public Date getFecha() {
         return fecha;
     }
