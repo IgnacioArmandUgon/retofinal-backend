@@ -1,7 +1,9 @@
 package com.springBajo8.springBajo8.controller;
 
 import com.springBajo8.springBajo8.model.FacturaDTO;
+import com.springBajo8.springBajo8.model.VolanteDTO;
 import com.springBajo8.springBajo8.service.FacturaService;
+import com.springBajo8.springBajo8.service.VolanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,33 +16,33 @@ import reactor.core.publisher.Mono;
 public class VolanteController {
 
     @Autowired
-    private FacturaService facturaService;
+    private VolanteService volanteService;
 
-    @PostMapping("/facturas")
+    @PostMapping("/volantes")
     @ResponseStatus(HttpStatus.CREATED)
-    private Mono<FacturaDTO> save(@RequestBody FacturaDTO facturaDTO) {
-        return this.facturaService.save(facturaDTO);
+    private Mono<VolanteDTO> save(@RequestBody VolanteDTO volanteDTO) {
+        return this.volanteService.save(volanteDTO);
     }
 
-    @DeleteMapping("/facturas/{id}")
-    private Mono<ResponseEntity<FacturaDTO>> delete(@PathVariable("id") String id) {
-        return this.facturaService.delete(id)
-                .flatMap(facturaDTO -> Mono.just(ResponseEntity.ok(facturaDTO)))
+    @DeleteMapping("/volantes/{id}")
+    private Mono<ResponseEntity<VolanteDTO>> delete(@PathVariable("id") String id) {
+        return this.volanteService.delete(id)
+                .flatMap(volanteDTO -> Mono.just(ResponseEntity.ok(volanteDTO)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
 
     }
 
-    @PutMapping("/facturas/{id}")
-    private Mono<ResponseEntity<FacturaDTO>> update(@PathVariable("id") String id, @RequestBody FacturaDTO facturaDTO) {
-        return this.facturaService.update(id, facturaDTO)
-                .flatMap(facturaDTO1 -> Mono.just(ResponseEntity.ok(facturaDTO1)))
+    @PutMapping("/volantes/{id}")
+    private Mono<ResponseEntity<VolanteDTO>> update(@PathVariable("id") String id, @RequestBody VolanteDTO volanteDTO) {
+        return this.volanteService.update(id, volanteDTO)
+                .flatMap(volanteDTO1 -> Mono.just(ResponseEntity.ok(volanteDTO1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
 
-    @GetMapping(value = "/")
-    private Flux<FacturaDTO> findAll() {
-        return this.facturaService.findAll();
+    @GetMapping(value = "/volantes")
+    private Flux<VolanteDTO> findAllVolantes() {
+        return this.volanteService.findAll();
     }
 
 }
