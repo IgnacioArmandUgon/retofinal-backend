@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
-@Document(collection = "facturas")
+@Document(collection = "inventario")
 public class ProductoDTO {
     @Id
     private String id = UUID.randomUUID().toString().substring(0, 3);
@@ -38,5 +38,13 @@ public class ProductoDTO {
 
     public void setPrecio(int precio) {
         Precio = precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 }
